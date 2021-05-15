@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+        <title>Minesweeper</title>
+        <style media="screen">
+            .cellButton {
+                height: 30px;
+                width: 30px;
+                padding: 0;
+                background-color: #d1d1d1;
+                color: #000;
+            }
+
+            .cellButton:hover {
+                background-color: #dedede;
+            }
+        </style>
+    </head>
+    <body onload="showModal();">
+        <div class="container mt-3 mb-5 text-center">
+            <h1 class="fs-3 mb-5" id="f">Minesweeper Game.</h1>
+            <h2 class="fs-5" id="flagsInfo"></h2>
+            <div class="mt-3" id="gameGrid">
+            </div>
+        </div>
+
+        <!-- Start game Modal -->
+        <div class="modal fade" id="gameOptions" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Please select a game mode!</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <input type="radio" id="beginnerMode" name="gameMode" value="0" checked>
+                            <label for="beginnerMode">Beginner - 9x9 cells and 10 mines.</label>
+                        </div>
+                        <div class="my-2">
+                            <input type="radio" id="intermediateMode" name="gameMode" value="1">
+                            <label for="intermediateMode">Intermediate - 16x16 cells and 40 mines.</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="expertMode" name="gameMode" value="2">
+                            <label for="expertMode">Expert - 16x30 cells and 99 mines.</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info rounded-pill px-3" onclick="startGame();">Start Game!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game over Modal -->
+        <div class="modal fade" id="finishGame" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="information"></h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info rounded-pill px-3" onclick="window.location.reload();">Play again!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="script.js"></script>
+        <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    </body>
+</html>
