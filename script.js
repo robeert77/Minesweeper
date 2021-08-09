@@ -36,7 +36,7 @@ function updateNextCells(line, column) {
                 grid[line + i][column + j]++;
 }
 
-// generete some mine(depends on game mode) in random positions
+// generete a mine in a random positions
 function generateMines(startLine, startColumn, nrMines) {
     while (nrMines-- !== 0) {
         let line = Math.floor(Math.random() * grid.length);
@@ -59,13 +59,12 @@ function getPosition(currentId, startPoint, endPoint) {
     return parseInt(pos);
 }
 
-// when a cell is clickes, this function will show to the user every empty cell that is adjacent to the clicked one
-// it will show also the walls of this area
+// when a cell is clicked, this function will show to the user every empty cell that is adjacent to the clicked one
 function showCells(line, column) {
     uncoveredCells--;
     $('#' + line + '-' + column).addClass('bg-light border border-dark fs-6');
     $('#' + line + '-' + column).prop('disabled', true);
-    if (grid[line][column] != 0) { // the current cell is a wall, so i don't have to gi further form here
+    if (grid[line][column] != 0) { // the current cell is a wall, so i don't have to go further form here
         $('#' + line + '-' + column).text(grid[line][column]);
         grid[line][column] = -2;
         return;
